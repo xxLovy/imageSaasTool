@@ -74,6 +74,7 @@ export async function POST(req: Request) {
         };
 
         if (!user) {
+            console.log("no user, here is evt")
             console.log(evt)
             console.log(evt?.data)
             redirect("/")
