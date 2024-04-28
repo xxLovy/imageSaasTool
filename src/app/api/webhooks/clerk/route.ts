@@ -13,9 +13,6 @@ export async function POST(req: Request) {
     console.log("Using Webhook")
     // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
     const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
-    if (WEBHOOK_SECRET !== "whsec_Z+Mu1bf2AT8Ssgzb3nNchp0FN7MOQhZG") {
-        return new Response("webhook secret not correct", { status: 423 });
-    }
 
     if (!WEBHOOK_SECRET) {
         throw new Error(
@@ -81,10 +78,14 @@ export async function POST(req: Request) {
             console.log("no user, here is evt")
             console.log(evt)
             console.log(evt?.data)
+            return new Response("no user", { status: 432 });
             redirect("/")
         }
 
+
         const newUser = await createUser(user);
+        return new Response("mongodb", { status: 477 });
+
 
         // Set public metadata
         if (newUser) {
