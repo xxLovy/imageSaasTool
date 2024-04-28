@@ -72,6 +72,7 @@ export async function POST(req: Request) {
         };
 
         if (!user) {
+            console.log(evt)
             redirect("/sign-in")
         }
 
