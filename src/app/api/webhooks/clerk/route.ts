@@ -73,7 +73,8 @@ export async function POST(req: Request) {
 
         if (!user) {
             console.log(evt)
-            redirect("/sign-in")
+            console.log(evt?.data)
+            redirect("/")
         }
 
         const newUser = await createUser(user);
