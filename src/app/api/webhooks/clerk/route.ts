@@ -10,6 +10,7 @@ import { redirect } from "next/navigation";
 
 export async function POST(req: Request) {
 
+    throw new Error("using webhook")
     console.log("Using Webhook")
     // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
     const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
