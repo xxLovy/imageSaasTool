@@ -2,6 +2,6 @@ Clerk Auth
 
 MongoDB Schema/ Serverless Connection
 
-Webhook
+Webhook(syncing with clerk)
 
 Shadcn
