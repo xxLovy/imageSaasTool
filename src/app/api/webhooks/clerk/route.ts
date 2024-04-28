@@ -9,6 +9,8 @@ import { createUser, deleteUser, updateUser } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
 
 export async function POST(req: Request) {
+
+    console.log("Using Webhook")
     // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
     const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
