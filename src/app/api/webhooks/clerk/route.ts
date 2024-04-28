@@ -75,16 +75,12 @@ export async function POST(req: Request) {
         };
 
         if (!user) {
-            console.log("no user, here is evt")
-            console.log(evt)
-            console.log(evt?.data)
-            return new Response("no user", { status: 432 });
             redirect("/")
         }
 
-
-        const newUser = await createUser(user);
         return new Response("mongodb", { status: 477 });
+        const newUser = await createUser(user);
+
 
 
         // Set public metadata
@@ -119,6 +115,7 @@ export async function POST(req: Request) {
     if (eventType === "user.deleted") {
         const { id } = evt.data;
 
+        return new Response("mongodb", { status: 477 });
         const deletedUser = await deleteUser(id!);
 
         return NextResponse.json({ message: "OK", user: deletedUser });
