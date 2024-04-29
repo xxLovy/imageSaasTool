@@ -6,12 +6,6 @@ import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
 import {
     Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { aspectRatioOptions, defaultValues, transformationTypes } from "../../../constants"
@@ -25,8 +19,9 @@ import {
 } from "@/components/ui/select"
 import { startTransition, useState, useTransition } from "react"
 import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils"
+import MediaUploader from "./MediaUploader"
 
-
+// https://ui.shadcn.com/docs/components/form
 export const formSchema = z.object({
     title: z.string(),
     aspectRatio: z.string().optional(),
@@ -109,6 +104,8 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+
+                {/* General form (all transformations will have) */}
                 <CustomField
                     control={form.control}
                     name="title"
@@ -116,6 +113,8 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
                     className="w-full"
                     render={({ field }) => <Input {...field} className="input-field" />}
                 />
+
+                {/* Only fill has this aspectRatio */}
                 {type === 'fill' && (
                     <CustomField
                         control={form.control}
@@ -142,6 +141,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
                     />
                 )}
 
+                {/* Only remove & recolor have this */}
                 {(type === 'remove' || type === 'recolor') && (
                     <div className="prompt-field">
                         <CustomField
@@ -189,6 +189,22 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
                     </div>
                 )}
 
+                <div className="media-uploader-field">
+                    <CustomField
+                        control={form.control}
+                        name="publicId"
+                        className="flex size-full flex-col"
+                        render={({ field }) => <MediaUploader
+                            onValueChange={field.onChange}
+                            setImage={setImage}
+                            publicId={field.value}
+                            image={image}
+                            type={type}
+                        />}
+                    />
+
+                </div>
+
                 <div className="flex flex-col gap-4">
                     <Button
                         type="button"
@@ -210,11 +226,8 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
 
                 </div>
 
-                {/* <Button
-                    type="submit"
-                    className="submit-button capitalize"
-                    disabled={isSumbitting}
-                >Submit</Button> */}
+
+
             </form>
         </Form>
     )
