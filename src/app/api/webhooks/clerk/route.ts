@@ -83,7 +83,9 @@ export async function POST(req: Request) {
 
         console.log(`User: ${user}`)
         if (!user) {
-            redirect("/")
+            return new Response("Error occured -- no User fetched from webhook", {
+                status: 400,
+            });
         }
 
         console.log("will use DB")
