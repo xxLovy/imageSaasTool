@@ -59,6 +59,7 @@ export async function deleteUser(clerkId: string) {
         await connectToDatabase();
 
         // Find user to delete
+        console.log(`searching clerkId :${clerkId}`)
         const userToDelete = await User.findOne({ clerkId });
 
         if (!userToDelete) {
