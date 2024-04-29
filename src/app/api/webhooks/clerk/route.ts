@@ -60,6 +60,8 @@ export async function POST(req: Request) {
     // Get the ID and type
     const { id } = evt.data;
     const eventType = evt.type;
+    console.log("ID && Type OK")
+    console.log(`ID: ${id}, Type: ${eventType}`)
 
     // CREATE
     if (eventType === "user.created") {
@@ -74,12 +76,14 @@ export async function POST(req: Request) {
             photo: image_url,
         };
 
+        console.log(`User: ${user}`)
         if (!user) {
             redirect("/")
         }
 
-        return new Response("mongodb", { status: 477 });
+        console.log("will use DB")
         const newUser = await createUser(user);
+        console.log("used DB")
 
 
 
@@ -115,8 +119,9 @@ export async function POST(req: Request) {
     if (eventType === "user.deleted") {
         const { id } = evt.data;
 
-        return new Response("mongodb", { status: 477 });
+        console.log(`ID: ${id} will be using DB`)
         const deletedUser = await deleteUser(id!);
+        console.log("Used DB, DB OK")
 
         return NextResponse.json({ message: "OK", user: deletedUser });
     }
