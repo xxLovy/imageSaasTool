@@ -1,41 +1,41 @@
 export const navLinks = [
     {
-        label: "Home",
+        label: "首页",
         route: "/",
         icon: "/assets/icons/home.svg",
     },
     {
-        label: "Image Restore",
+        label: "图像恢复",
         route: "/transformations/add/restore",
         icon: "/assets/icons/image.svg",
     },
     {
-        label: "Generative Fill",
+        label: "生成填充",
         route: "/transformations/add/fill",
         icon: "/assets/icons/stars.svg",
     },
     {
-        label: "Object Remove",
+        label: "移除对象",
         route: "/transformations/add/remove",
         icon: "/assets/icons/scan.svg",
     },
     {
-        label: "Object Recolor",
+        label: "重新着色对象",
         route: "/transformations/add/recolor",
         icon: "/assets/icons/filter.svg",
     },
     {
-        label: "Background Remove",
+        label: "背景移除",
         route: "/transformations/add/removeBackground",
         icon: "/assets/icons/camera.svg",
     },
     {
-        label: "Profile",
+        label: "个人资料",
         route: "/profile",
         icon: "/assets/icons/profile.svg",
     },
     {
-        label: "Buy Credits",
+        label: "购买积分",
         route: "/credits",
         icon: "/assets/icons/bag.svg",
     },
@@ -44,75 +44,75 @@ export const navLinks = [
 export const plans = [
     {
         _id: 1,
-        name: "Free",
+        name: "免费",
         icon: "/assets/icons/free-plan.svg",
         price: 0,
         credits: 20,
         inclusions: [
             {
-                label: "20 Free Credits",
+                label: "20 免费积分",
                 isIncluded: true,
             },
             {
-                label: "Basic Access to Services",
+                label: "基本服务访问权限",
                 isIncluded: true,
             },
             {
-                label: "Priority Customer Support",
+                label: "优先客户支持",
                 isIncluded: false,
             },
             {
-                label: "Priority Updates",
+                label: "优先更新",
                 isIncluded: false,
             },
         ],
     },
     {
         _id: 2,
-        name: "Pro Package",
+        name: "专业套餐",
         icon: "/assets/icons/free-plan.svg",
         price: 40,
         credits: 120,
         inclusions: [
             {
-                label: "120 Credits",
+                label: "120 积分",
                 isIncluded: true,
             },
             {
-                label: "Full Access to Services",
+                label: "完整服务访问权限",
                 isIncluded: true,
             },
             {
-                label: "Priority Customer Support",
+                label: "优先客户支持",
                 isIncluded: true,
             },
             {
-                label: "Priority Updates",
+                label: "优先更新",
                 isIncluded: false,
             },
         ],
     },
     {
         _id: 3,
-        name: "Premium Package",
+        name: "高级套餐",
         icon: "/assets/icons/free-plan.svg",
         price: 199,
         credits: 2000,
         inclusions: [
             {
-                label: "2000 Credits",
+                label: "2000 积分",
                 isIncluded: true,
             },
             {
-                label: "Full Access to Services",
+                label: "完整服务访问权限",
                 isIncluded: true,
             },
             {
-                label: "Priority Customer Support",
+                label: "优先客户支持",
                 isIncluded: true,
             },
             {
-                label: "Priority Updates",
+                label: "优先更新",
                 isIncluded: true,
             },
         ],
@@ -122,29 +122,29 @@ export const plans = [
 export const transformationTypes = {
     restore: {
         type: "restore",
-        title: "Restore Image",
-        subTitle: "Refine images by removing noise and imperfections",
+        title: "恢复图像",
+        subTitle: "通过消除噪声和瑕疵来优化图像",
         config: { restore: true },
         icon: "image.svg",
     },
     removeBackground: {
         type: "removeBackground",
-        title: "Background Remove",
-        subTitle: "Removes the background of the image using AI",
+        title: "移除背景",
+        subTitle: "使用人工智能移除图像的背景",
         config: { removeBackground: true },
         icon: "camera.svg",
     },
     fill: {
         type: "fill",
-        title: "Generative Fill",
-        subTitle: "Enhance an image's dimensions using AI outpainting",
+        title: "生成填充",
+        subTitle: "使用人工智能外部绘制增强图像的尺寸",
         config: { fillBackground: true },
         icon: "stars.svg",
     },
     remove: {
         type: "remove",
-        title: "Object Remove",
-        subTitle: "Identify and eliminate objects from images",
+        title: "对象移除",
+        subTitle: "识别并消除图像中的对象",
         config: {
             remove: { prompt: "", removeShadow: true, multiple: true },
         },
@@ -152,8 +152,8 @@ export const transformationTypes = {
     },
     recolor: {
         type: "recolor",
-        title: "Object Recolor",
-        subTitle: "Identify and recolor objects from the image",
+        title: "对象着色",
+        subTitle: "识别并为图像中的对象着色",
         config: {
             recolor: { prompt: "", to: "", multiple: true },
         },
@@ -164,19 +164,19 @@ export const transformationTypes = {
 export const aspectRatioOptions = {
     "1:1": {
         aspectRatio: "1:1",
-        label: "Square (1:1)",
+        label: "正方形 (1:1)",
         width: 1000,
         height: 1000,
     },
     "3:4": {
         aspectRatio: "3:4",
-        label: "Standard Portrait (3:4)",
+        label: "标准竖向 (3:4)",
         width: 1000,
         height: 1334,
     },
     "9:16": {
         aspectRatio: "9:16",
-        label: "Phone Portrait (9:16)",
+        label: "手机竖向 (9:16)",
         width: 1000,
         height: 1778,
     },
